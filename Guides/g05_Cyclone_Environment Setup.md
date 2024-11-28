@@ -203,7 +203,7 @@ This example ensures that your environment is set up correctly and verifies the 
 
 ---
 
-## **4. Best Practices**
+## **5.4 Best Practices**
 1. **Always Load Required Modules**: Ensure you load all dependencies before running your software.
 2. **Purge Modules When Switching Projects**: Use `module purge` to avoid conflicts.
 3. **Keep Your Conda Environments Clean**: Create separate environments for different projects to maintain organization and avoid dependency clashes.

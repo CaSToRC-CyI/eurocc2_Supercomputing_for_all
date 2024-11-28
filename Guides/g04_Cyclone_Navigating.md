@@ -254,7 +254,7 @@ where `front02` indicates that the script was executed on the login node.
 
 ---
 
-### **Clarrifications**
+### **Clarifications**
 1. **Creating the Script Without Opening a File**:
    - `echo '#!/bin/bash' > hello_node.sh`: Writes the shebang to indicate it’s a bash script.
    - `echo 'echo "Hello from Node $HOSTNAME"' >> hello_node.sh`: Appends the echo command to the script.
@@ -273,5 +273,3 @@ where `front02` indicates that the script was executed on the login node.
 - **Quota Management**: Be mindful of your storage usage and quotas in shared directories.
 
 ---
-
-By understanding Cyclone's directory structure and using these basic commands, you can efficiently organize and manage your files while maximizing system resources.
