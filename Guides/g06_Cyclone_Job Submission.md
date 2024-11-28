@@ -285,25 +285,18 @@ srun ./your_multithreaded_application
 ---
 
 ### **6.7.4 Best Practices for Multithreading**
-1. **Understand Your Application**:
-   - Verify if your application benefits from multithreading. Some applications (e.g., OpenMP-based) perform better with carefully tuned thread counts.
+1. **Understand Your Application**: Verify if your application benefits from multithreading. Some applications (e.g., OpenMP-based) perform better with carefully tuned thread counts.
 
-2. **Test Hyper-Threading**:
-   - Run tests to determine if hyper-threading improves or degrades performance. Use `--hint=multithread` or `--hint=nomultithread` accordingly.
+2. **Test Hyper-Threading**: Run tests to determine if hyper-threading improves or degrades performance. Use `--hint=multithread` or `--hint=nomultithread` accordingly.
 
-3. **Match Threads to Resources**:
-   - Use `--cpus-per-task` to match the number of threads your application will use. Over-requesting CPUs wastes resources and can block other users.
+3. **Match Threads to Resources**: Use `--cpus-per-task` to match the number of threads your application will use. Over-requesting CPUs wastes resources and can block other users.
 
-4. **Set Thread Environment Variables**:
-   - For OpenMP applications, set `OMP_NUM_THREADS` to match `$SLURM_CPUS_PER_TASK`.
-   - For other multithreaded libraries, such as Intel MKL, set variables like `MKL_NUM_THREADS`.
+4. **Set Thread Environment Variables**: For OpenMP applications, set `OMP_NUM_THREADS` to match `$SLURM_CPUS_PER_TASK`. For other multithreaded libraries, such as Intel MKL, set variables like `MKL_NUM_THREADS`.
 
-5. **Respect Shared Resources**:
-   - Do not over-allocate CPUs or threads beyond your actual requirements. This ensures fair use of Cyclone's shared resources.
+5. **Respect Shared Resources**: Do not over-allocate CPUs or threads beyond your actual requirements. This ensures fair use of Cyclone's shared resources.
 
-6. **Monitor Thread Usage**:
-   - Use `scontrol show job <job_id>` or `squeue -j <job_id>` to verify that the requested resources match the allocation.
-   - 
+6. **Monitor Thread Usage**: Use `scontrol show job <job_id>` or `squeue -j <job_id>` to verify that the requested resources match the allocation.
+  
 ---
 
 ### **6.7.5 Hyper-Threading vs. No Hyper-Threading: Which to Use?**
@@ -316,7 +309,7 @@ srun ./your_multithreaded_application
 
 ---
 
-### 6.8 Using SLURM for GPU, MPI, and Hybrid Applications on Cyclone
+## 6.8 Using SLURM for GPU, MPI, and Hybrid Applications on Cyclone
 
 Cyclone's partitions support diverse workloads, including GPU-accelerated applications, MPI-distributed applications, and hybrid MPI+X (MPI combined with multithreading or GPUs) setups. Each type of workload requires specific SLURM configurations to optimize resource usage and maximize performance.
 
@@ -432,5 +425,9 @@ srun ./hybrid_application
 2. **GPU Usage**:
    - Distribute GPUs among ranks using `--gres=gpu:<count>` and ensure your application supports this configuration.
 3. **Partition**: Use the `gpu` partition for hybrid workloads that require GPUs.
+
+## 6.9 Useful Guides
+
+- The [SLURM Best Practice Guide for HPC Users](utils/ENG_BPG_SLURM_V3_NCC-SPAIN-.pdf) offers a more in-depth explanation about SLURM in general. Users that are looking to dive in further, are highly encouraged to go through the material.
 
 ---
