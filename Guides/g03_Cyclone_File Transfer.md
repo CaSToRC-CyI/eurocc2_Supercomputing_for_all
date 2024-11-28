@@ -53,6 +53,7 @@ When working on Cyclone, your files will be stored in specific directories tailo
 - **Usage Tips**:
   - Store SSH keys, environment setup files, and small codebases.
   - Avoid storing large datasets or temporary files here.
+  - The home path can also be displayed by using the `$HOME` variable.
 
 ---
 
@@ -65,6 +66,7 @@ When working on Cyclone, your files will be stored in specific directories tailo
 - **Usage Tips**:
   - Use for large datasets or files generated during computations.
   - Regularly move important results to your home directory or a local backup to prevent data loss.
+  - The user Scratch path can also be located at `~/scratch`.
 
 ---
 
@@ -96,7 +98,7 @@ scp /path/to/local/file your_username@cyclone.hpcf.cyi.ac.cy:/path/to/remote/des
 ```
 **Example**:  
 ```bash
-scp /home/user/data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
+$ scp /home/user/data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
 ```
 **Explanation**: This command uploads the file `data.csv` from your local system to the `scratch` directory on Cyclone.
 
@@ -106,7 +108,7 @@ rsync -avz /path/to/local/directory your_username@cyclone.hpcf.cyi.ac.cy:/path/t
 ```
 **Example**:  
 ```bash
-rsync -avz /home/user/project/ cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/project/
+$ rsync -avz /home/user/project/ cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/project/
 ```
 **Explanation**: This command synchronizes the `project` directory to the `scratch` directory on Cyclone, ensuring only new or updated files are transferred.
 
@@ -120,7 +122,7 @@ scp your_username@cyclone.hpcf.cyi.ac.cy:/path/to/remote/file /path/to/local/des
 ```
 **Example**:  
 ```bash
-scp cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/output.csv /home/user/
+$ scp cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/output.csv /home/user/
 ```
 **Explanation**: This command downloads the file `output.csv` from the Cyclone `scratch` directory to your local machine.
 
@@ -130,7 +132,7 @@ rsync -avz your_username@cyclone.hpcf.cyi.ac.cy:/path/to/remote/directory /path/
 ```
 **Example**:  
 ```bash
-rsync -avz cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/project/ /home/user/project/
+$ rsync -avz cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/project/ /home/user/project/
 ```
 **Explanation**: This command synchronizes the `project` directory on Cyclone to your local system, transferring only the changes.
 
@@ -148,21 +150,21 @@ On Windows, you can use `scp` and `rsync` with **PowerShell**, **WSL**, or **Git
 
 ### **PowerShell Examples**
 ```powershell
-scp C:\Users\cstylianou\Documents\data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
+$ scp C:\Users\cstylianou\Documents\data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
 ```
 
 ---
 
 ### **WSL Examples**
 ```bash
-scp /mnt/c/Users/cstylianou/Documents/data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
+$ scp /mnt/c/Users/cstylianou/Documents/data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
 ```
 
 ---
 
 ### **Git Bash Examples**
 ```bash
-scp /c/Users/cstylianou/Documents/data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
+$ scp /c/Users/cstylianou/Documents/data.csv cstyl@cyclone.hpcf.cyi.ac.cy:/nvme/scratch/cstyl/
 ```
 
 ---

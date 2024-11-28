@@ -131,7 +131,7 @@ Once you have generated an SSH key, follow these steps to connect to Cyclone:
 
 2. Connect to Cyclone using:
    ```bash
-   ssh your_username@cyclone.hpcf.cyi.ac.cy
+   $ ssh your_username@cyclone.hpcf.cyi.ac.cy
    ```
 
 **Example**:
