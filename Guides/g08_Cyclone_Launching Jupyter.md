@@ -146,9 +146,12 @@ The Jupyter Notebook is launched in **no-browser mode**, and the script **extrac
    http://localhost:<port>/?token=<token>
    ```
 
+Upon successful connection, you will see in your screen something similar as below:
+![Jupyter Notebook Welcome Screen](images/jupyter_notebook.png)
+
 ---
 
-## **8.6 Best Practices**
+## **8.6 Best Practices and Troubleshooting**
 
 1. **Resource Allocation**: Request only the necessary resources (CPUs, GPUs, memory) to optimize cluster usage.
 
@@ -157,5 +160,20 @@ The Jupyter Notebook is launched in **no-browser mode**, and the script **extrac
 3. **Clean Up**: Ensure the job completes cleanly and terminates the Jupyter process on the compute node.
 
 4. **Respect Others**: **Avoid running Jupyter on the login node**; always use compute nodes via SLURM to prevent resource contention.
+
+5. **Failure to initialise Conda*: If conda fails to initialise inside the SLURM script, you will need to add the following after loading the Anaconda module (i.e. replace `source ~/.bashrc` with):
+   ```bash
+   __conda_setup="$('/nvme/h/buildsets/eb_cyclone_rl/software/Anaconda3/2023.03-1/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/nvme/h/buildsets/eb_cyclone_rl/software/Anaconda3/2023.03-1/etc/profile.d/conda.sh" ]; then
+            . "/nvme/h/buildsets/eb_cyclone_rl/software/Anaconda3/2023.03-1/etc/profile.d/conda.sh"
+        else
+            export PATH="/nvme/h/buildsets/eb_cyclone_rl/software/Anaconda3/2023.03-1/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+   ```
 
 ---
