@@ -41,7 +41,7 @@ Here’s how it works: SSH relies on a pair of keys—a **public key** and a **p
 
 ## **2.2 Generating an SSH Key**
 
-To connect to Cyclone, you need to generate an SSH key pair. Follow the instructions for your platform below:
+To connect to Cyclone, you need to generate an SSH key pair and share it with the HPC Facility managing Cyclone. Follow the instructions for your platform below:
 
 ### **2.2.1 Mac/Linux**
 
